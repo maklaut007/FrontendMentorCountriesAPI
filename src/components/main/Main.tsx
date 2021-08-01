@@ -1,10 +1,9 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import { useAppSelector } from '../../hooks/hooks';
+import { selectCountries } from '../../store/countriesSlice';
 
 function Main() {
-  const count = useAppSelector((state) => state.countries.countryList);
+  const count = useAppSelector(selectCountries);
   return (
     <main>
       <div>Hello</div>
