@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import image from '../../images/moon.svg';
 
 const Wrapper = styled.div`
+background-color: ${({ theme }) => theme.headerBakground};
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -25,17 +27,18 @@ const ModeIcon = styled.img`
   width: 20px;
   margin-right: 10px;
 `;
-
-function Header(): JSX.Element {
+interface HeaderProps {
+  switchTheme(): void;
+}
+function Header({ switchTheme }:HeaderProps): JSX.Element {
   return (
     <Wrapper>
       <HeaderTitle className="header__title">Where in the world?</HeaderTitle>
-      <ThemeSwitch>
+      <ThemeSwitch onClick={() => { switchTheme(); }}>
         <ModeIcon alt="Moon" src={image} />
         Dark Mode
       </ThemeSwitch>
     </Wrapper>
   );
 }
-
 export default Header;

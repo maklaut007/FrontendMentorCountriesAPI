@@ -5,10 +5,9 @@ import { useAppSelector } from '../../hooks/hooks';
 import { selectCountries } from '../../store/countriesSlice';
 
 const Wrapper = styled.main`
-  background-color: #FAFAFA;
+  background-color: ${({ theme }) => theme.backgound};
 `;
 const Country = styled.article`
-  background-color: #fff;
   width: 265px;
   height: 335px;
   border-radius: 5px;
