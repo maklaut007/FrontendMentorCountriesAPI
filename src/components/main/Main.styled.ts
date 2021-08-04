@@ -1,0 +1,68 @@
+import styled from 'styled-components';
+
+export const Wrapper = styled.main`
+  background-color: ${({ theme }) => theme.backgound};
+`;
+export const Country = styled.article`
+  width: 265px;
+  height: 335px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 10px ${({ theme }) => theme.shadow};
+  overflow: hidden;
+  margin: 40px auto;
+  background-color: ${({ theme }) => theme.headerBackground};
+`;
+export const CountryFlag = styled.img`
+  display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+`;
+export const CountryName = styled.h2`
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-left: 24px;
+  margin-top: 24px;
+`;
+export const CountryData = styled.p`
+  margin-left: 24px;
+  font-size: 0.95rem;
+`;
+export const CountryDataType = styled.span`
+  font-weight: 600;
+`;
+export const FilterDropDown = styled.div`
+  width: 200px;
+  height: 50px;
+  position: relative;
+  margin: 20px;
+  background-color: ${({ theme }) => theme.headerBackground};
+  font-size: 0.8rem;
+`;
+export const Regions = styled.div<{filterDisplayed: boolean}>`
+  background-color: ${({ theme }) => theme.headerBackground};
+  position: absolute;
+  width: calc(100% - 40px);
+  top: 60px;
+  padding: 20px;
+  box-shadow: 0 0 10px ${({ theme }) => theme.shadow};
+  display: ${(props) => (props.filterDisplayed ? 'block' : 'none')};
+`;
+export const Region = styled.div`
+  margin: 8px;
+`;
+export const SearchCountry = styled.input`
+  width: 340px;
+`;
+export const DropDownHead = styled.p`
+  display: flex;
+  width: calc(100%-40px);
+  height: 100%;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
+  box-shadow: 0 0 10px ${({ theme }) => theme.shadow};
+`;
+export const DropDownArrow = styled.span<{filterDisplayed: boolean}>`
+  transform: ${(props) => (props.filterDisplayed ? 'rotate(0deg)' : 'rotate(180deg)')};
+`;

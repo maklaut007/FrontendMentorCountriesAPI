@@ -4,21 +4,21 @@ import PropTypes from 'prop-types';
 import image from '../../images/moon.svg';
 
 const Wrapper = styled.div`
-background-color: ${({ theme }) => theme.headerBakground};
+  background-color: ${({ theme }) => theme.headerBackground};
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  box-shadow: 0px 4px 4px #EEEEEE;
+  box-shadow: 0px 4px 4px ${({ theme }) => theme.shadow};
 `;
 
 const HeaderTitle = styled.div`
-  font-weight: 700;
+  font-weight: 800;
   font-size: 0.9rem;
 `;
 const ThemeSwitch = styled.button`
   display: flex;
   border: none;
-  background-color: white;
+  background-color: ${({ theme }) => theme.headerBackground};
   font-weight: 600;
   cursor: pointer;
   font-size: 0.8rem;
@@ -28,13 +28,13 @@ const ModeIcon = styled.img`
   margin-right: 10px;
 `;
 interface HeaderProps {
-  switchTheme(): void;
+  toggleTheme(): void;
 }
-function Header({ switchTheme }:HeaderProps): JSX.Element {
+function Header({ toggleTheme }:HeaderProps): JSX.Element {
   return (
     <Wrapper>
       <HeaderTitle className="header__title">Where in the world?</HeaderTitle>
-      <ThemeSwitch onClick={() => { switchTheme(); }}>
+      <ThemeSwitch onClick={() => { toggleTheme(); }}>
         <ModeIcon alt="Moon" src={image} />
         Dark Mode
       </ThemeSwitch>

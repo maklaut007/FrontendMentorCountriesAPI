@@ -37,8 +37,7 @@ function App(): JSX.Element {
         throw error;
       });
   }, []);
-  const switchTheme = () => {
-    console.log(33);
+  const toggleTheme = () => {
     if (currentTheme === 'light') {
       setCurrentTheme('dark');
     } else {
@@ -48,7 +47,7 @@ function App(): JSX.Element {
   return (
     <ThemeProvider theme={currentTheme === 'light' ? lightTheme : darkTheme}>
       <Wrapper>
-        <Header switchTheme={switchTheme} />
+        <Header toggleTheme={toggleTheme} />
         <Main />
       </Wrapper>
     </ThemeProvider>
