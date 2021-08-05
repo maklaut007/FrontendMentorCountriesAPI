@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import axios from 'axios';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Main from './components/main/Main';
 import Header from './components/header/Header';
+import Country from './components/country/Country';
 import { useAppDispatch } from './hooks/hooks';
 import { addCountries } from './store/countriesSlice';
 import { lightTheme, darkTheme } from './theme';
@@ -46,10 +48,22 @@ function App(): JSX.Element {
   };
   return (
     <ThemeProvider theme={currentTheme === 'light' ? lightTheme : darkTheme}>
-      <Wrapper>
-        <Header toggleTheme={toggleTheme} />
-        <Main />
-      </Wrapper>
+      <Router>
+        <Wrapper>
+          <Header toggleTheme={toggleTheme} />
+          <Switch>
+            <Route path="/main">
+              <Main />
+            </Route>
+            <Route path="/:countryName">
+              <Country />
+            </Route>
+            {/* <Route path="/">
+              <Redirect to="/main" />
+            </Route> */}
+          </Switch>
+        </Wrapper>
+      </Router>
     </ThemeProvider>
   );
 }
