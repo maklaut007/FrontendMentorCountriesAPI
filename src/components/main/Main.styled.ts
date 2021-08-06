@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.main`
   background-color: ${({ theme }) => theme.backgound};
@@ -15,6 +16,15 @@ export const Country = styled.article`
   margin: 40px auto;
   background-color: ${({ theme }) => theme.headerBackground};
 `;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.text};
+  position: relative;
+  height: 100%;
+  width: 100%;
+`;
+
 export const CountryFlag = styled.img`
   display: block;
   width: 100%;

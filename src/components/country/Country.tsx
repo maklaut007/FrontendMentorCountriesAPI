@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import * as Styled from './Country.styled';
 
@@ -35,7 +35,6 @@ function Coutry(): JSX.Element {
   useEffect(() => {
     axios.get(`https://restcountries.eu/rest/v2/name${location.pathname}?fullText=true`)
       .then((response) => {
-        console.log(response.data[0]);
         setCountryData({
           flag: response.data[0].flag,
           name: response.data[0].name,

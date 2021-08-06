@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import { useAppSelector } from '../../hooks/hooks';
 import { selectCountries } from '../../store/countriesSlice';
 import * as Styled from './Main.styled';
@@ -31,12 +30,6 @@ function Main(): JSX.Element {
   };
   useEffect(() => {
     filterCountries();
-    // if (region) {
-    //   const secectedCountries: CountyType[] = countries.filter(
-    //     (country) => country.region === region,
-    //   );
-    //   setDisplayedCountries(secectedCountries);
-    // }
   }, [region]);
 
   useEffect(() => {
@@ -45,11 +38,6 @@ function Main(): JSX.Element {
 
   useEffect(() => {
     filterCountries();
-    // const results = countries.filter(
-    //   (country) => country.name.toLowerCase().includes(searchValue)
-    //   && (country.region === region || !region),
-    // );
-    // setDisplayedCountries(results);
   }, [searchValue]);
 
   const handleSearchInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,21 +61,23 @@ function Main(): JSX.Element {
       <section>
         {displayedCountries?.map((country) => (
           <Styled.Country key={country.name}>
-            <Styled.CountryFlag src={country.flag} />
-            <Styled.CountryName>{country.name}</Styled.CountryName>
-            <Styled.CountryData>
-              <Styled.CountryDataType>Population: </Styled.CountryDataType>
-              {/* Add comas in number */}
-              {country.population}
-            </Styled.CountryData>
-            <Styled.CountryData>
-              <Styled.CountryDataType>Region: </Styled.CountryDataType>
-              {country.region}
-            </Styled.CountryData>
-            <Styled.CountryData>
-              <Styled.CountryDataType>Capital: </Styled.CountryDataType>
-              {country.capital}
-            </Styled.CountryData>
+            <Styled.StyledLink to={`/${country.name.toLocaleLowerCase()}`}>
+              <Styled.CountryFlag src={country.flag} />
+              <Styled.CountryName>{country.name}</Styled.CountryName>
+              <Styled.CountryData>
+                <Styled.CountryDataType>Population: </Styled.CountryDataType>
+                {/* Add comas in number */}
+                {country.population}
+              </Styled.CountryData>
+              <Styled.CountryData>
+                <Styled.CountryDataType>Region: </Styled.CountryDataType>
+                {country.region}
+              </Styled.CountryData>
+              <Styled.CountryData>
+                <Styled.CountryDataType>Capital: </Styled.CountryDataType>
+                {country.capital}
+              </Styled.CountryData>
+            </Styled.StyledLink>
           </Styled.Country>
         ))}
       </section>
