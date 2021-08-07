@@ -21,8 +21,6 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.text};
   position: relative;
-  height: 100%;
-  width: 100%;
 `;
 
 export const CountryFlag = styled.img`
