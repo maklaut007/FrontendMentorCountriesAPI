@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
-  <path style="stroke: rgb(0, 0, 0); fill: rgb(255, 255, 255); paint-order: fill; stroke-width: 10px;" transform="matrix(-0.707107, 0.707107, -0.707107, -0.707107, 878.527039, 384.97702)" d="M 216.162 410.201 A 163.114 163.114 0 1 1 216.162 683.799 A 136.863 136.863 0 1 0 216.162 410.201 Z" bx:shape="crescent 305 547 163.114 246 0.66 1@481894d2"/>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <path style="stroke-width: 14px; " 
+  transform="matrix(-0.754305, 0.656525, -0.656525, -0.754305, 744.862183, 168.050644)" 
+  d="M 309.35 101.619 A 188.458 188.458 0 1 1 309.35 426.381 A 163.038 163.038 0 0 0 309.35 101.619 Z" 
+  />
 </svg>

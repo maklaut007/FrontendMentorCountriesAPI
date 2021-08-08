@@ -50,7 +50,7 @@ function Main(): JSX.Element {
       <Styled.FilterDropDown>
         <Styled.DropDownHead onClick={() => { setFilterDisplayed(!filterDisplayed); }}>
           Filter by Region
-          <Styled.DropDownArrow filterDisplayed={filterDisplayed}>˄</Styled.DropDownArrow>
+          <Styled.DropDownArrow $filterDisplayed={filterDisplayed} />
         </Styled.DropDownHead>
         <Styled.Regions filterDisplayed={filterDisplayed}>
           {regions?.map((reg) => (

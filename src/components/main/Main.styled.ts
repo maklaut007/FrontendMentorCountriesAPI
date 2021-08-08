@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { ReactComponent as ArrowDown } from '../../images/arrow-down.svg';
 
 export const Wrapper = styled.main`
   background-color: ${({ theme }) => theme.backgound};
@@ -49,6 +50,7 @@ export const FilterDropDown = styled.div`
   margin: 20px auto 20px 20px;
   background-color: ${({ theme }) => theme.headerBackground};
   font-size: 0.8rem;
+  z-index: 1;
 `;
 export const Regions = styled.div<{filterDisplayed: boolean}>`
   background-color: ${({ theme }) => theme.headerBackground};
@@ -85,7 +87,7 @@ export const SearchCountry = styled.input`
     left: 0;
   }
 `;
-export const DropDownHead = styled.p`
+export const DropDownHead = styled.div`
   display: flex;
   height: 100%;
   align-items: center;
@@ -95,6 +97,15 @@ export const DropDownHead = styled.p`
   box-shadow: 0 0 10px ${({ theme }) => theme.shadow};
   cursor: pointer;
 `;
-export const DropDownArrow = styled.span<{filterDisplayed: boolean}>`
-  transform: ${(props) => (props.filterDisplayed ? 'rotate(0deg)' : 'rotate(180deg)')};
+export const DropDownArrow = styled(ArrowDown)<{$filterDisplayed: boolean}>`
+  width: 8px;
+  height: 8px;
+  fill: ${({ theme }) => theme.text};
+  transform: ${(props) => (props.$filterDisplayed ? 'rotate(0deg)' : 'rotate(180deg)')};
+`;
+export const DropDownArrow2 = styled(ArrowDown)`
+  width: 8px;
+  height: 8px;
+  fill: ${({ theme }) => theme.text};
+
 `;
