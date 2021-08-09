@@ -46,22 +46,27 @@ function Main(): JSX.Element {
 
   return (
     <Styled.Wrapper>
-      <Styled.SearchCountry type="text" value={searchValue} onChange={handleSearchInput} placeholder="Search for a country" />
-      <Styled.FilterDropDown>
-        <Styled.DropDownHead onClick={() => { setFilterDisplayed(!filterDisplayed); }}>
-          Filter by Region
-          <Styled.DropDownArrow $filterDisplayed={filterDisplayed} />
-        </Styled.DropDownHead>
-        <Styled.Regions filterDisplayed={filterDisplayed}>
-          {regions?.map((reg) => (
-            <Styled.Region onClick={() => setRegion(reg)} key={reg}>{reg}</Styled.Region>
-          ))}
-        </Styled.Regions>
-      </Styled.FilterDropDown>
-      <section>
+      <Styled.TopMenu>
+        <Styled.SearchCountryWrap>
+          <Styled.SearchIcon />
+          <Styled.SearchCountry type="text" value={searchValue} onChange={handleSearchInput} placeholder="Search for a country..." />
+        </Styled.SearchCountryWrap>
+        <Styled.FilterDropDown>
+          <Styled.DropDownHead onClick={() => { setFilterDisplayed(!filterDisplayed); }}>
+            Filter by Region
+            <Styled.DropDownArrow $filterDisplayed={filterDisplayed} />
+          </Styled.DropDownHead>
+          <Styled.Regions filterDisplayed={filterDisplayed}>
+            {regions?.map((reg) => (
+              <Styled.Region onClick={() => setRegion(reg)} key={reg}>{reg}</Styled.Region>
+            ))}
+          </Styled.Regions>
+        </Styled.FilterDropDown>
+      </Styled.TopMenu>
+      <Styled.CountriesList>
         {displayedCountries?.map((country) => (
-          <Styled.Country key={country.name}>
-            <Styled.StyledLink to={`/${country.name.toLocaleLowerCase()}`}>
+          <Styled.StyledLink key={country.name} to={`/${country.name.toLocaleLowerCase()}`}>
+            <Styled.Country>
               <Styled.CountryFlag src={country.flag} />
               <Styled.CountryName>{country.name}</Styled.CountryName>
               <Styled.CountryData>
@@ -77,10 +82,10 @@ function Main(): JSX.Element {
                 <Styled.CountryDataType>Capital: </Styled.CountryDataType>
                 {country.capital}
               </Styled.CountryData>
-            </Styled.StyledLink>
-          </Styled.Country>
+            </Styled.Country>
+          </Styled.StyledLink>
         ))}
-      </section>
+      </Styled.CountriesList>
     </Styled.Wrapper>
   );
 }
