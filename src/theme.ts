@@ -9,5 +9,5 @@ export const darkTheme = {
   body: '#202D36',
   headerBackground: '#2B3743',
   text: '#FFF',
-  shadow: '#1D2A33',
+  shadow: '#172026',
 };

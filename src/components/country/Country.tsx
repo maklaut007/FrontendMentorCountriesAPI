@@ -19,6 +19,7 @@ interface CountyDataType {
 
 function Coutry(): JSX.Element {
   const location = useLocation();
+
   const [countryData, setCountryData] = useState<CountyDataType>({
     flag: '',
     name: '',
@@ -64,17 +65,21 @@ function Coutry(): JSX.Element {
       .catch((error) => {
         throw error;
       });
-  }, []);
+  }, [location]);
 
   useEffect(() => {
     if (countryData.borderCountries[0]) {
       fetchBorderCountries(countryData.borderCountries);
     }
   }, [countryData.borderCountries]);
-
+  const mapBorderCountries = () => borderCountries.map((country) => (
+    <Styled.BorderCountry key={country} to={`/${country.toLocaleLowerCase()}`}>
+      { country }
+    </Styled.BorderCountry>
+  ));
   return (
     <Styled.Wrapper>
-      <Styled.StyledLink to="/main">Back</Styled.StyledLink>
+      <Styled.LinkBack to="/main">Back</Styled.LinkBack>
       <Styled.CountryInfo>
         <Styled.Flag alt={`${countryData.name}flag`} src={countryData.flag} />
         <Styled.CountryName>{countryData.name}</Styled.CountryName>
@@ -116,7 +121,7 @@ function Coutry(): JSX.Element {
         </Styled.MainInfo>
         <Styled.Borders>
           Border Countries:
-          {borderCountries}
+          {mapBorderCountries()}
         </Styled.Borders>
       </Styled.CountryInfo>
     </Styled.Wrapper>

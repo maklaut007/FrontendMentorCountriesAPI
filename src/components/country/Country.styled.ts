@@ -6,7 +6,7 @@ export const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
 `;
-export const StyledLink = styled(Link)`
+export const LinkBack = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,4 +47,7 @@ export const InfoTitle = styled.span`
   font-weight: 600;
 `;
 export const Borders = styled.span`
+`;
+export const BorderCountry = styled(Link)`
+
 `;

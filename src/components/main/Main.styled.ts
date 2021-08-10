@@ -24,7 +24,7 @@ export const SearchCountryWrap = styled.div`
   position: relative;
   width: 90%;
   max-width: 480px;
-  box-shadow: 0px 1px 7px ${({ theme }) => theme.shadow};
+  box-shadow: 0px 0px 8px ${({ theme }) => theme.shadow};
   background-color: ${({ theme }) => theme.headerBackground};
   border-radius: 4px;
   margin: 24px auto;
@@ -80,7 +80,7 @@ export const DropDownHead = styled.div`
   padding: 0 20px;
   margin: 0px;
   justify-content: space-between;
-  box-shadow: 0 0 10px ${({ theme }) => theme.shadow};
+  box-shadow: 0 0 8px ${({ theme }) => theme.shadow};
   cursor: pointer;
   border-radius: 4px;
 `;
@@ -96,7 +96,7 @@ export const Regions = styled.div<{filterDisplayed: boolean}>`
   width: calc(100% - 40px);
   top: 70px;
   padding: 20px;
-  box-shadow: 0 0 10px ${({ theme }) => theme.shadow};
+  box-shadow: 0 0 8px ${({ theme }) => theme.shadow};
   display: ${(props) => (props.filterDisplayed ? 'block' : 'none')};
   border-radius: 4px;
 `;
@@ -116,7 +116,7 @@ export const Country = styled.article`
   width: 265px;
   height: 335px;
   border-radius: 5px;
-  box-shadow: 0px 3px 10px ${({ theme }) => theme.shadow};
+  box-shadow: 0px 0px 8px ${({ theme }) => theme.shadow};
   overflow: hidden;
   
   background-color: ${({ theme }) => theme.headerBackground};
