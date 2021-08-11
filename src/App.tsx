@@ -10,8 +10,9 @@ import { addCountries } from './store/countriesSlice';
 import { lightTheme, darkTheme } from './theme';
 
 const Wrapper = styled.div`
-  background: ${({ theme }) => theme.body};
+  background: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.text};
+  min-height: 100%;
 `;
 
 function App(): JSX.Element {
