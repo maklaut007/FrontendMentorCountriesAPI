@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAppSelector } from '../../hooks/hooks';
 import { selectCountries } from '../../store/countriesSlice';
 import * as Styled from './Main.styled';
+import numberWithCommas from '../../utilities/numberWithComas';
 
 interface CountyType {
   flag: string;
@@ -65,14 +66,14 @@ function Main(): JSX.Element {
       </Styled.TopMenu>
       <Styled.CountriesList>
         {displayedCountries?.map((country) => (
-          <Styled.StyledLink key={country.name} to={`/${country.name.toLocaleLowerCase()}`}>
+          <Styled.StyledLink key={country.name} to={`/country/${country.name.toLocaleLowerCase()}`}>
             <Styled.Country>
               <Styled.CountryFlag src={country.flag} />
               <Styled.CountryName>{country.name}</Styled.CountryName>
               <Styled.CountryData>
                 <Styled.CountryDataType>Population: </Styled.CountryDataType>
                 {/* Add comas in number */}
-                {country.population}
+                {numberWithCommas(country.population)}
               </Styled.CountryData>
               <Styled.CountryData>
                 <Styled.CountryDataType>Region: </Styled.CountryDataType>

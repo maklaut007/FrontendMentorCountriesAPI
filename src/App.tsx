@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import axios from 'axios';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Switch, Route, Redirect,
+} from 'react-router-dom';
 import Main from './components/main/Main';
 import Header from './components/header/Header';
 import Country from './components/country/Country';
@@ -13,6 +15,7 @@ const Wrapper = styled.div`
   background: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.text};
   min-height: 100%;
+  position: relative;
 `;
 
 function App(): JSX.Element {
@@ -56,12 +59,12 @@ function App(): JSX.Element {
             <Route path="/main">
               <Main />
             </Route>
-            <Route path="/:countryName">
+            <Route path="/country/:countryName">
               <Country />
             </Route>
-            {/* <Route path="/">
+            <Route path="/">
               <Redirect to="/main" />
-            </Route> */}
+            </Route>
           </Switch>
         </Wrapper>
       </Router>

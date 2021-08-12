@@ -8,6 +8,7 @@ export const Wrapper = styled.main`
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
+  padding-top: 80px;
 `;
 export const TopMenu = styled.section`
   display: flex;
@@ -16,7 +17,8 @@ export const TopMenu = styled.section`
   align-items: center;
   margin: 0px auto;
   @media only screen and (min-width: 600px) {
-    margin: 0px 70px;
+    margin: 20px 5%;
+    flex-flow: row nowrap;
   }
 `;
 
@@ -29,7 +31,7 @@ export const SearchCountryWrap = styled.div`
   border-radius: 4px;
   margin: 24px auto;
   @media only screen and (min-width: 600px) {
-    margin: 24px 5%;
+    margin: 0px;
   }
 `;
 export const SearchIcon = styled(SearchImage)`
@@ -72,6 +74,10 @@ export const FilterDropDown = styled.div`
   z-index: 1;
   border-radius: 4px;
   margin: 20px 5% ;
+  user-select: none;
+  @media only screen and (min-width: 600px) {
+    margin: 20px 0px;
+  }
 `;
 export const DropDownHead = styled.div`
   display: flex;
@@ -99,9 +105,12 @@ export const Regions = styled.div<{filterDisplayed: boolean}>`
   box-shadow: 0 0 8px ${({ theme }) => theme.shadow};
   display: ${(props) => (props.filterDisplayed ? 'block' : 'none')};
   border-radius: 4px;
+  
+
 `;
 export const Region = styled.div`
   margin: 8px;
+  cursor: pointer;
 `;
 
 // Countries

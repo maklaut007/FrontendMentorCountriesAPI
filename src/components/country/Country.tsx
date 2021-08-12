@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import * as Styled from './Country.styled';
+import numberWithComas from '../../utilities/numberWithComas';
 
 interface CountyDataType {
   flag: string;
@@ -19,7 +20,6 @@ interface CountyDataType {
 
 function Coutry(): JSX.Element {
   const location = useLocation();
-
   const [countryData, setCountryData] = useState<CountyDataType>({
     flag: '',
     name: '',
@@ -46,7 +46,8 @@ function Coutry(): JSX.Element {
       });
   };
   useEffect(() => {
-    axios.get(`https://restcountries.eu/rest/v2/name${location.pathname}?fullText=true`)
+    const currentPath = location.pathname.replace('/country', '');
+    axios.get(`https://restcountries.eu/rest/v2/name${currentPath}?fullText=true`)
       .then(({ data }) => (
         setCountryData({
           flag: data[0].flag,
@@ -73,7 +74,7 @@ function Coutry(): JSX.Element {
     }
   }, [countryData.borderCountries]);
   const mapBorderCountries = () => borderCountries.map((country) => (
-    <Styled.BorderCountry key={country} to={`/${country.toLocaleLowerCase()}`}>
+    <Styled.BorderCountry key={country} to={`/country/${country.toLocaleLowerCase()}`}>
       { country }
     </Styled.BorderCountry>
   ));
@@ -97,7 +98,7 @@ function Coutry(): JSX.Element {
               </Styled.InfoData>
               <Styled.InfoData>
                 <Styled.InfoTitle>Population: </Styled.InfoTitle>
-                {countryData.population}
+                {numberWithComas(countryData.population)}
               </Styled.InfoData>
               <Styled.InfoData>
                 <Styled.InfoTitle>Religion: </Styled.InfoTitle>
@@ -115,15 +116,15 @@ function Coutry(): JSX.Element {
             <Styled.MainInfo>
               <Styled.InfoData>
                 <Styled.InfoTitle>Top level Domain: </Styled.InfoTitle>
-                {countryData.topLevelDomain}
+                {countryData.topLevelDomain.join(', ')}
               </Styled.InfoData>
               <Styled.InfoData>
                 <Styled.InfoTitle>Currencies: </Styled.InfoTitle>
-                {countryData.currencies}
+                {countryData.currencies.join(', ')}
               </Styled.InfoData>
               <Styled.InfoData>
                 <Styled.InfoTitle>Languages: </Styled.InfoTitle>
-                {countryData.languages}
+                {countryData.languages.join(', ')}
               </Styled.InfoData>
             </Styled.MainInfo>
           </Styled.MainInfoWrap>

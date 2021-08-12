@@ -5,6 +5,7 @@ import { ReactComponent as ArrowLeft } from '../../images/arrow-left.svg';
 export const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
+  padding-top: 80px;
 `;
 export const TopMenu = styled.section`
   display: flex;
@@ -97,6 +98,9 @@ export const Borders = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin: 30px 0 20px;
+  @media only screen and (min-width: 1020px) {
+    width: 80%;
+  }
 `;
 export const BordersTitle = styled.h3`
   font-size: 1rem;

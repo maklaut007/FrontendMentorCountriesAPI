@@ -8,9 +8,14 @@ export const Wrapper = styled.header`
   padding: 20px;
   box-shadow: 0px 0px 8px ${({ theme }) => theme.shadow};
   height: 40px;
+  position: fixed;
+  width: calc(100% - 40px);
+  z-index: 2;
   @media only screen and (min-width: 600px) {
     padding: 20px 50px;
+    width: calc(100% - 100px);
   }
+  
 `;
 export const HeaderTitle = styled.h1`
   display: flex;
