@@ -89,42 +89,44 @@ function Coutry(): JSX.Element {
         <Styled.Flag alt={`${countryData.name}flag`} src={countryData.flag} />
         <Styled.CountryInfoText>
           <Styled.CountryName>{countryData.name}</Styled.CountryName>
-          <Styled.MainInfo>
-            <Styled.InfoData>
-              <Styled.InfoTitle>Native Name: </Styled.InfoTitle>
-              {countryData.nativeName}
-            </Styled.InfoData>
-            <Styled.InfoData>
-              <Styled.InfoTitle>Population: </Styled.InfoTitle>
-              {countryData.population}
-            </Styled.InfoData>
-            <Styled.InfoData>
-              <Styled.InfoTitle>Religion: </Styled.InfoTitle>
-              {countryData.region}
-            </Styled.InfoData>
-            <Styled.InfoData>
-              <Styled.InfoTitle>Sub Region: </Styled.InfoTitle>
-              {countryData.subRegion}
-            </Styled.InfoData>
-            <Styled.InfoData>
-              <Styled.InfoTitle>Capital: </Styled.InfoTitle>
-              {countryData.capital}
-            </Styled.InfoData>
-          </Styled.MainInfo>
-          <Styled.MainInfo>
-            <Styled.InfoData>
-              <Styled.InfoTitle>Top level Domain: </Styled.InfoTitle>
-              {countryData.topLevelDomain}
-            </Styled.InfoData>
-            <Styled.InfoData>
-              <Styled.InfoTitle>Currencies: </Styled.InfoTitle>
-              {countryData.currencies}
-            </Styled.InfoData>
-            <Styled.InfoData>
-              <Styled.InfoTitle>Languages: </Styled.InfoTitle>
-              {countryData.languages}
-            </Styled.InfoData>
-          </Styled.MainInfo>
+          <Styled.MainInfoWrap>
+            <Styled.MainInfo>
+              <Styled.InfoData>
+                <Styled.InfoTitle>Native Name: </Styled.InfoTitle>
+                {countryData.nativeName}
+              </Styled.InfoData>
+              <Styled.InfoData>
+                <Styled.InfoTitle>Population: </Styled.InfoTitle>
+                {countryData.population}
+              </Styled.InfoData>
+              <Styled.InfoData>
+                <Styled.InfoTitle>Religion: </Styled.InfoTitle>
+                {countryData.region}
+              </Styled.InfoData>
+              <Styled.InfoData>
+                <Styled.InfoTitle>Sub Region: </Styled.InfoTitle>
+                {countryData.subRegion}
+              </Styled.InfoData>
+              <Styled.InfoData>
+                <Styled.InfoTitle>Capital: </Styled.InfoTitle>
+                {countryData.capital}
+              </Styled.InfoData>
+            </Styled.MainInfo>
+            <Styled.MainInfo>
+              <Styled.InfoData>
+                <Styled.InfoTitle>Top level Domain: </Styled.InfoTitle>
+                {countryData.topLevelDomain}
+              </Styled.InfoData>
+              <Styled.InfoData>
+                <Styled.InfoTitle>Currencies: </Styled.InfoTitle>
+                {countryData.currencies}
+              </Styled.InfoData>
+              <Styled.InfoData>
+                <Styled.InfoTitle>Languages: </Styled.InfoTitle>
+                {countryData.languages}
+              </Styled.InfoData>
+            </Styled.MainInfo>
+          </Styled.MainInfoWrap>
           <Styled.Borders>
             <Styled.BordersTitle>Border Countries:</Styled.BordersTitle>
             <br />

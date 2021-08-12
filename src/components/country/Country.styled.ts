@@ -22,6 +22,7 @@ export const LinkBack = styled(Link)`
   height: 32px;
   width: 104px;
   margin: 40px 7.5% 20px;
+  border-radius: 6px;
 `;
 export const ReturnArrow = styled(ArrowLeft)`
   display: flex;
@@ -36,14 +37,17 @@ export const CountryInfo = styled.section`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  padding: 0 7.5%;
+  @media only screen and (min-width: 1020px) {
+    margin-top: 50px;
+  }
 `;
 export const CountryInfoText = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  @media only screen and (min-width: 840px) {
-    
+  margin-left: 26px;
+  @media only screen and (min-width: 1020px) {
+    width: 50%;
   }
 `;
 
@@ -52,8 +56,13 @@ export const Flag = styled.img`
   width: 85%;
   max-width: 560px;
   margin: 50px auto;
-  @media only screen and (min-width: 840px) {
-    margin: auto ;
+  @media only screen and (max-width: 350px) {
+    min-width: 250px;
+  }
+  @media only screen and (min-width: 1020px) {
+    margin: auto;
+    margin-left: 7.5vw;
+    width: 40%;
   }
 `;
 export const CountryName = styled.h1`
@@ -61,6 +70,11 @@ export const CountryName = styled.h1`
   width: 100%;
   margin: 0;
   font-size: 1.4rem;
+`;
+export const MainInfoWrap = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
 `;
 export const MainInfo = styled.div`
   display: flex;
@@ -77,19 +91,22 @@ export const InfoTitle = styled.span`
   font-weight: 600;
 `;
 export const Borders = styled.div`
-width: 100%;
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 30px;
+  margin: 30px 0 20px;
 `;
 export const BordersTitle = styled.h3`
   font-size: 1rem;
   font-weight: 600;
-  margin: 20px 0 10px;
-  width: 100%
-  ;
+  
+  width: calc(100% - 10px);
+  margin: 10px 10px 10px 0;
+  @media only screen and (min-width: 1020px) {
+    width: auto;
+  }
 `;
 export const BorderCountry = styled(Link)`
   display: flex;
