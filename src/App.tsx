@@ -22,17 +22,13 @@ function App(): JSX.Element {
   const dispatch = useAppDispatch();
   const [currentTheme, setCurrentTheme] = useState('light');
   useEffect(() => {
-    axios.get('https://restcountries.eu/rest/v2/all')
+    axios.get('https://restcountries.com/v3.1/all')
       .then((response) => {
         const countriesData = response.data.map((
-          country: { name: string;
-            flag: string;
-            capital: string;
-            region: string;
-            population: number; },
+          country,
         ) => ({
-          name: country.name,
-          flag: country.flag,
+          name: country.name.common,
+          flag: country.flags.png,
           capital: country.capital,
           region: country.region,
           population: country.population,

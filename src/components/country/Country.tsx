@@ -36,9 +36,9 @@ function Coutry(): JSX.Element {
   const [borderCountries, setBorderCountries] = useState<string[]>([]);
 
   const fetchBorderCountries = (countries: string[]) => {
-    axios.get(`https://restcountries.eu/rest/v2/alpha?codes=${countries.join(';')}`)
+    axios.get(`https://restcountries.com/v3.1/alpha?codes=${countries.join(',')}`)
       .then((response) => {
-        const borders: string[] = response.data.map((country: any) => country.name);
+        const borders: string[] = response.data.map((country: any) => country.name.common);
         setBorderCountries(borders);
       })
       .catch((error) => {
@@ -47,27 +47,29 @@ function Coutry(): JSX.Element {
   };
   useEffect(() => {
     const currentPath = location.pathname.replace('/country', '');
-    axios.get(`https://restcountries.eu/rest/v2/name${currentPath}?fullText=true`)
-      .then(({ data }) => (
+    axios.get(`https://restcountries.com/v3.1/name${currentPath}?fullText=true`)
+      .then(({ data }) => {
         setCountryData({
-          flag: data[0].flag,
-          name: data[0].name,
-          nativeName: data[0].nativeName,
+          flag: data[0].flags.png,
+          name: data[0].name.common,
+          nativeName: Object.keys(data[0].name.nativeName)
+            .map((name: any) => data[0].name.nativeName[name])[0].common,
           population: data[0].population,
           region: data[0].region,
           subRegion: data[0].subregion,
-          capital: data[0].capital,
-          topLevelDomain: data[0].topLevelDomain,
-          currencies: data[0].currencies.map((cur: any) => cur.name),
-          languages: data[0].languages.map((lang: any) => lang.name),
+          capital: data[0].capital[0],
+          topLevelDomain: data[0].tld,
+          currencies: Object.keys(data[0].currencies)
+            .map((cur: any) => data[0].currencies[cur].name),
+          languages: Object.keys(data[0].languages)
+            .map((lang: any) => data[0].languages[lang]),
           borderCountries: data[0].borders,
-        })
-      ))
+        });
+      })
       .catch((error) => {
         throw error;
       });
   }, [location]);
-
   useEffect(() => {
     if (countryData.borderCountries[0]) {
       fetchBorderCountries(countryData.borderCountries);
@@ -116,7 +118,7 @@ function Coutry(): JSX.Element {
             <Styled.MainInfo>
               <Styled.InfoData>
                 <Styled.InfoTitle>Top level Domain: </Styled.InfoTitle>
-                {countryData.topLevelDomain.join(', ')}
+                {countryData.topLevelDomain?.join(', ')}
               </Styled.InfoData>
               <Styled.InfoData>
                 <Styled.InfoTitle>Currencies: </Styled.InfoTitle>
